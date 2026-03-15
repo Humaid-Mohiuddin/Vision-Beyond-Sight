@@ -51,81 +51,49 @@ to create a portable assistive navigation system.
 - Smart glasses / camera module
 - Processing on edge devices
 
-## Repository Structure
-
-Vision-Beyond-Sight
-|  LICENSE
-|  README.md
-|  requirements.txt
-|  
-|      
-+---assets
-+---docs
-+---logs        
-+---models
-|
-|      
-+---src
-|  |  config.py
-|  |  main.py
-|  |      
-|  +---audio
-|  |     audio_feedback.py
-|  | 
-|  |
-|  +---depth
-|  |     depth_estimation.py
-|  |   
-|  |          
-|  +---navigation
-|  |     roi_navigation.py
-|  |  
-|  |          
-|  +---utils
-|  |     logger.py
-|  |  
-|  |          
-|  +---vision
-|        detect_objects.py
-|        preprocess.py
-|  
-|
-|          
-+---tests
-       torch-gpu-test.py
 
 
 ## Installation
 
 ### Clone the repository
 
-> git clone https://github.com/Humaid-Mohiuddin/Vision-Beyond-Sight.git
+```
+git clone https://github.com/Humaid-Mohiuddin/Vision-Beyond-Sight.git
+```
 
 ### Navigate to the project
 
-> cd Vision-Beyond-Sight
+```
+cd Vision-Beyond-Sight
+```
 
 ### Install dependencies
 
-> pip install -r requirements.txt
+```
+pip install -r requirements.txt
+```
 
 
 ## Running the system
 
 ### Navigate to the src folder of the project
 
-> cd src
+```
+cd src
+```
 
 ### Run the main.py file
 
-> python main.py
+```
+python main.py
+```
 
 
 ## Research Inspiration
 
-**Assistive technology research**
-**Computer vision navigation systems**
-**Human-computer interaction for accessibility**
+- Assistive technology research
+- Computer vision navigation systems
+- Human-computer interaction for accessibility
 
 
 ## Author
