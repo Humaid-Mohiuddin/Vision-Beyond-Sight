@@ -4,7 +4,7 @@ import numpy as np
 from utils.logger import WriteLogs
 from vision.preprocess import preprocess_frame
 from vision.detect_objects import detect_objects
-from depth.depth_estimation import estimate_depth
+from depth.depth_estimation import Midas, Depth_Anything
 from audio.audio_feedback import speak_command, start_audio, stop_audio
 from navigation.roi_navigation import compute_roi_direction
 
@@ -21,6 +21,7 @@ def force_bgr_uint8(img):
 
 def main():
     writer = WriteLogs()
+    depth_model = Midas()
     start_audio()
     
     cap = cv2.VideoCapture(0)
@@ -42,13 +43,13 @@ def main():
         detections, frame_yolo = detect_objects(frame_prep)
 
         # Depth estimation
-        depth_colored, depth_map = estimate_depth(frame_prep)
+        depth_colored, depth_map = depth_model.estimate_depth(frame_prep)
         # Resize depth map to match frame
         depth_map_resized = cv2.resize(depth_map, (frame_width, frame_height), interpolation=cv2.INTER_LINEAR)
 
         # ROI based navigation
         roi_x, roi_width, command= compute_roi_direction(
-            detections, depth_map_resized, frame_width, frame_height
+            depth_map_resized, frame_width, frame_height, detections
         )
 
         # Speak audio command
@@ -75,7 +76,7 @@ def main():
 
         # Fps counter
         if ((time.time() - start_time) >= 1):
-            writer.write_log(f"FPS: {fps} | Commmad: {command} | Speak Time: {speak_time}\n")
+            writer.write_log(f"FPS: {fps} | Commmad: {command} | Depth Model: {depth_model.model_type}")
             fps = frame_count
             frame_count = 0
             start_time = time.time()

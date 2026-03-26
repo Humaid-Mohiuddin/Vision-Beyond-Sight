@@ -1,6 +1,6 @@
 import numpy as np
 
-def compute_roi_direction(detections, depth_map, frame_width, frame_height, roi_width_ratio=0.2, step=10):
+def compute_roi_direction(depth_map, frame_width, frame_height, detections=None, roi_width_ratio=0.2, step=10):
     
     """
     Compute the optimal vertical ROI position and direction command.
@@ -50,7 +50,7 @@ def compute_roi_direction(detections, depth_map, frame_width, frame_height, roi_
     # Determine command based on ROI position relative to frame center
     roi_center = best_x + roi_width // 2
     frame_center = frame_width // 2
-    threshold = frame_width * 0.05  # 5% tolerance
+    threshold = frame_width * 0.10  # 10% tolerance
     if roi_center < frame_center - threshold:
         command = "Move left"
     elif roi_center > frame_center + threshold:
