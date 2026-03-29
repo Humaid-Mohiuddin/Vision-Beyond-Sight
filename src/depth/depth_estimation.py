@@ -10,8 +10,8 @@ class Midas:
     def __init__(self):
         # Load model (MiDaS model types)
         # self.model_type = "DPT_Large"     # MiDaS v3 - Large   (highest accuracy, slowest inference speed)
-        self.model_type = "DPT_Hybrid"   # MiDaS v3 - Hybrid    (medium accuracy, medium inference speed)
-        # self.model_type = "MiDaS_small"  # MiDaS v2.1 - Small   (lowest accuracy, highest inference speed)
+        # self.model_type = "DPT_Hybrid"   # MiDaS v3 - Hybrid    (medium accuracy, medium inference speed)
+        self.model_type = "MiDaS_small"  # MiDaS v2.1 - Small   (lowest accuracy, highest inference speed)
         
         self.midas = torch.hub.load("intel-isl/MiDaS", self.model_type)
         self.midas.to("cuda" if torch.cuda.is_available() else "cpu")
