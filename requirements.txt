@@ -144,20 +144,6 @@ timm==1.0.26
     # via vision-beyond-sight (pyproject.toml)
 tokenizers==0.22.2
     # via transformers
-torch==2.11.0
-    # via
-    #   vision-beyond-sight (pyproject.toml)
-    #   timm
-    #   torchvision
-    #   ultralytics
-    #   ultralytics-thop
-torchaudio==2.11.0
-    # via vision-beyond-sight (pyproject.toml)
-torchvision==0.26.0
-    # via
-    #   vision-beyond-sight (pyproject.toml)
-    #   timm
-    #   ultralytics
 tqdm==4.67.3
     # via
     #   huggingface-hub

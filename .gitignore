@@ -9,6 +9,10 @@ venv/
 env/
 .venv
 
+.virtual_documents
+anaconda_projects
+notebooks
+
 models/*.pt
 models/*.pth
 

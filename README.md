@@ -28,7 +28,7 @@ to create a portable assistive navigation system.
 ### Future:
 - Lightweight architecture and optimizations for inference on edge devices
 - Design for smart glasses integration
-- Point A to point B navigation system influencing nagivation decisions
+- Point A to point B navigation system influencing navigation decisions
 - Rough surface alerts and warning systems
 - Elevators and Staircases detection and guidance systems.
 
@@ -36,24 +36,27 @@ to create a portable assistive navigation system.
  
 ### Computer Vision
 - OpenCV
+- Numpy
 
 ### Machine Learning
-- YOLO Object Detection
-- MiDaS Depth Estimation
+- Object Detection - YOLOv8
+- Depth Estimation - MiDaS, Depth Anything V2
 
 ### Programming Language
 - Python
 
-### Audio Processing
+### Audio Generation
 - pyttsx3
 
 ### Hardware (Planned)
 - Smart glasses / camera module
-- Processing on edge devices
+- Processing on edge devices - Hailo8 / Memry / Raspberry Pi
 
 
 
-## Installation
+## **INSTALLATION AND USAGE**
+
+**Please read and follow this entire section for proper configuration and running the project without any issues.**
 
 ### Clone the repository
 
@@ -61,18 +64,62 @@ to create a portable assistive navigation system.
 git clone https://github.com/Humaid-Mohiuddin/Vision-Beyond-Sight.git
 ```
 
-### Navigate to the project
+### Navigate to the project folder
 
 ```
 cd Vision-Beyond-Sight
 ```
 
-### Install dependencies
+### **Creating an environment**
+
+#### Using python:
+- Create
+```
+python -m venv .venv
+```
+- Activate
+```
+.venv\Scripts\activate
+```
+
+
+
+#### Using uv:
+- Create
+```
+uv venv --python 3.11
+```
+- Activate
+```
+.venv\Scripts\activate
+```
+
+
+### **Installing dependencies**
+
+#### Using pip:
+```
+python -m pip install -r requirements.txt
+```
+
+#### Using uv:
+```
+uv sync
+```
+
+### **Additional Dependencies (Pytorch)**
+
+- CPU (general use-case):
+```
+python -m pip install torch torchvision torchaudio
+```
+- GPU:
+
+If you have an NVIDIA gpu you can use it to boost performance, you will have to install the cuda version of pytorch which can be heavy in size ~2.4 Gb
 
 ```
-pip install -r requirements.txt
+python -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 ```
-
 
 ## Running the system
 
